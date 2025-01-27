@@ -9,7 +9,7 @@ import {ProductUnit} from "../src/model/ProductUnit"
 import {assert} from "chai";
 
 describe('Supermarket', () => {
-    it('Ten percent discount', () => {
+    it('test ten percent discount', () => {
         // ARRANGE
         const catalog: SupermarketCatalog = new FakeCatalog();
         const toothbrush: Product = new Product("toothbrush", ProductUnit.Each);

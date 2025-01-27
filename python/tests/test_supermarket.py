@@ -8,6 +8,7 @@ from tests.fake_catalog import FakeCatalog
 
 def test_ten_percent_discount():
     catalog = FakeCatalog()
+
     toothbrush = Product("toothbrush", ProductUnit.EACH)
     catalog.add_product(toothbrush, 0.99)
 
