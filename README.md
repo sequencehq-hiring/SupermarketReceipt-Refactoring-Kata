@@ -1,46 +1,54 @@
-_Support this and all my katas via [Patreon](https://www.patreon.com/EmilyBache)_
+# Supermarket Receipt Kata
 
-# The Supermarket Receipt Refactoring Kata
+This exercise involves a supermarket that needs to generate shopping receipts for its selection of products. The goal is to improve its test cases and add a new feature.
 
-Watch the ["Detangle Bad Code Challenge"](https://youtu.be/EWB-VhEUoHE) introduction to this exercise.
+### Context
 
-This is a variation of a popular kata described in http://codekata.com/kata/kata01-supermarket-pricing/. The aim of the exercise is to build automated tests for this code, refactor it, and add a new feature. 
+The supermarket has a catalog with different types of products (rice, apples, milk, toothbrushes, etc).
 
-The supermarket has a catalog with different types of products (rice, apples, milk, toothbrushes,...). Each product has a price, and the total price of the shopping cart is the total of all the prices of the items. You get a receipt that details the items you've bought, the total price and any discounts that were applied.
+Each product has a price. The total price of the shopping cart is the sum of all item prices. 
 
-The supermarket runs special deals, e.g.
- - Buy two toothbrushes, get one free. Normal toothbrush price is €0.99
- - 20% discount on apples, normal price €1.99 per kilo.
- - 10% discount on rice, normal price €2.49 per bag
- - Five tubes of toothpaste for €7.49, normal price €1.79
- - Two boxes of cherry tomatoes for €0.99, normal price €0.69 per box.
+The receipt has:
+- A list of items purchased
+- A list of discounts applied
+- The total price
+
+The supermarket runs special deals, such as:
+- Buy two toothbrushes, get one free. Normal toothbrush price is £0.99
+- 20% discount on apples, normal price £1.99 per kilo
+- 10% discount on rice, normal price £2.49 per bag
 
 These are just examples: the actual special deals change each week.
 
-Create some test cases and aim to get good enough code coverage that you feel confident to do some refactoring.
+### Getting Started
 
-When you have good test cases, identify code smells such as Long Method, Feature Envy. Apply relevant refactorings.
+1. Clone this repository
 
-When you're confident you can handle this code, implement the new feature described below
+2. Open the folder for your desired language in your preferred IDE. For example, open the `./kotlin` folder in Intellij if you're using Kotlin
 
-## New feature: discounted bundles
+3. Install dependencies if needed
 
-The owner of the system has a new feature request. They want to introduce a new kind of special offer - bundles. When you buy all the items in a product bundle
-you get 10% off the total for those items. For example you could make a bundle offer of one toothbrush and one toothpaste. If you then you buy one toothbrush and one toothpaste, the discount will be 10% of €0.99 + €1.79. If you instead buy two toothbrushes and one toothpaste, you get the same discount as if you'd bought only one of each - ie only complete bundles are discounted.
+4. Run the test suite
 
-## New feature: HTML receipt
+### Tasks
 
-Currently we print a traditional ticket receipt. Now being a modern business we'd
-like to be able to print or send a HTML version of the same receipt. All the data 
-and number formatting should be the same. However the layout should be html. 
-You don't have to worry about the HTML template - a designer will care of that - but 
-we do need someone to keep duplication between the reports to a bare minimum.
+#### 1) Update the test
 
-## Start with the refactoring
+Finish implementing the 'ten percent discount' test. You'll need to add a toothbrush to the cart and test that the discount is applied correctly.
 
-If you would like to just do the refactoring part of this exercise, you can instead check out the 'with_tests' branch. 
-Those tests have reasonably good coverage and should support most kinds of refactorings you'd like to do.
+#### 2) New feature: discounted bundles
 
-## Use this exercise in a Learning Hour
+New feature request: we want to introduce a new kind of special offer: bundles. When you buy all the items in a product bundle you get 10% off the total for those items.
 
-You can use the [Supermarket Receipt](https://sammancoaching.org/kata_descriptions/supermarket_receipt.html) Kata in learning hours if you are using the [Samman](https://sammancoaching.org) coaching method.
+Example:
+  - Bundle: 1 toothbrush (£0.99) + 1 toothpaste (£1.79).
+  - Total price without discount: £0.99 + £1.79 = £2.78.
+  - Discount: 10% of £2.78 = £0.28.
+  - Final price: £2.78 - £0.28 = £2.50.
+
+Only complete bundles are discounted. For example:
+  - If you buy 2 toothbrushes and 1 toothpaste, only 1 toothbrush and 1 toothpaste are discounted.
+
+#### 3) Extension: improve the codebase (refactoring)
+
+Identity code smells and opportunities to improve the code's readability and maintainability. Talk through your ideas and apply the relevant code changes.
